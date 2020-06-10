@@ -1,5 +1,6 @@
-package elsevier.uk.entellect.platform.services;
+package elsevier.uk.entellect.platform.services.auth;
 
+import elsevier.uk.entellect.platform.services.common.BaseAPI;
 import elsevier.uk.entellect.platform.utils.PropUtils;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;

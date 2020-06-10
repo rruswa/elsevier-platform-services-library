@@ -1,4 +1,4 @@
-package elsevier.uk.entellect.platform.services;
+package elsevier.uk.entellect.platform.services.common;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
