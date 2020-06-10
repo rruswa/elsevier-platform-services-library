@@ -22,7 +22,7 @@ public class AuthAPI extends BaseAPI {
     public static String bearerToken(String username, String password) {
         // Logging of the response was removed as it exposed the bearer token being returned by this API call.
         return RestAssured.given()
-                .spec(baseRequestSpecBuilder.build())
+                .log().all()
                 .header("grant_type", "password")
                 .auth()
                     .preemptive()
