@@ -1,5 +1,6 @@
 package elsevier.uk.entellect.platform.services.group;
 
+import elsevier.uk.entellect.platform.models.GroupModel;
 import elsevier.uk.entellect.platform.models.GroupsModel;
 import elsevier.uk.entellect.platform.services.common.BaseAPI;
 import io.restassured.builder.RequestSpecBuilder;
@@ -23,6 +24,19 @@ public class GroupAPI extends BaseAPI {
                 .extract()
                     .body()
                     .as(GroupsModel.class);
+    }
+
+    public static GroupModel group(String groupGuid) {
+        return given()
+                    .spec(baseRequestSpecBuilder.build().spec(reqSpec.build()))
+                .when()
+                    .get(groupGuid)
+                .then()
+                    .spec(baseResponseSpecBuilder.build())
+                    .statusCode(HttpStatus.SC_OK)
+                .extract()
+                    .body()
+                    .as(GroupModel.class);
     }
 
 }
