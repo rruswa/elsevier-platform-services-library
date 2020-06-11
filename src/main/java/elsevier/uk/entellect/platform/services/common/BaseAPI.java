@@ -11,13 +11,13 @@ public class BaseAPI {
         RestAssured.baseURI = "https://api-ssl.bitly.com/";
     }
 
-    protected static RequestSpecBuilder baseRequestSpecBuilder = new RequestSpecBuilder()
-            .log(LogDetail.ALL)
-            .addHeader("Authorization", "Bearer " + AuthAPI.token);
+    public static RequestSpecBuilder getBaseRequestSpecBuilder() {
+        return new RequestSpecBuilder()
+                .log(LogDetail.ALL)
+                .addHeader("Authorization", "Bearer " + AuthAPI.token);
+    }
 
-    protected static ResponseSpecBuilder baseResponseSpecBuilder = new ResponseSpecBuilder()
-            .log(LogDetail.ALL);
-
-
-
+    public static ResponseSpecBuilder getBaseResponseSpecBuilder() {
+        return new ResponseSpecBuilder().log(LogDetail.ALL);
+    }
 }

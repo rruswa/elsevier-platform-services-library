@@ -15,11 +15,11 @@ public class GroupAPI extends BaseAPI {
 
     public static GroupsModel groups() {
         return given()
-                    .spec(baseRequestSpecBuilder.build().spec(reqSpec.build()))
+                    .spec(getBaseRequestSpecBuilder().build().spec(reqSpec.build()))
                 .when()
                     .get()
                 .then()
-                    .spec(baseResponseSpecBuilder.build())
+                    .spec(getBaseResponseSpecBuilder().build())
                     .statusCode(HttpStatus.SC_OK)
                 .extract()
                     .body()
@@ -28,11 +28,11 @@ public class GroupAPI extends BaseAPI {
 
     public static GroupModel group(String groupGuid) {
         return given()
-                    .spec(baseRequestSpecBuilder.build().spec(reqSpec.build()))
+                .spec(getBaseRequestSpecBuilder().build().spec(reqSpec.build()))
                 .when()
                     .get(groupGuid)
                 .then()
-                    .spec(baseResponseSpecBuilder.build())
+                    .spec(getBaseResponseSpecBuilder().build())
                     .statusCode(HttpStatus.SC_OK)
                 .extract()
                     .body()
