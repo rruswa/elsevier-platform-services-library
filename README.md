@@ -12,4 +12,5 @@ Work in progress...
 Please set the following properties as either environment variables or pass them in as a jvm argument upon execution:
 
 **elsevier.bitly.username**: This must be set to the value of the bitly username.
+
 **elsevier.bitly.password**: This must be set to the password for the bitly username provided.
