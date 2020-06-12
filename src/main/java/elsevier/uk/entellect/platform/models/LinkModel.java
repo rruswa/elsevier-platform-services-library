@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -28,6 +30,30 @@ public class LinkModel {
     private List<String> tags;
     @JsonProperty("references")
     private ReferencesModel references;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        LinkModel linkModel = (LinkModel) o;
+
+        return new EqualsBuilder()
+                .append(id, linkModel.id)
+                .append(link, linkModel.link)
+                .append(longUrl, linkModel.longUrl)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(17, 37)
+                .append(id)
+                .append(link)
+                .append(longUrl)
+                .toHashCode();
+    }
 
     @Override
     public String toString() {
