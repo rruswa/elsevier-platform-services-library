@@ -1,5 +1,6 @@
 package elsevier.uk.entellect.platform.services.group;
 
+import elsevier.uk.entellect.platform.models.BitlinksModel;
 import elsevier.uk.entellect.platform.models.GroupModel;
 import elsevier.uk.entellect.platform.models.GroupsModel;
 import elsevier.uk.entellect.platform.services.common.BaseAPI;
@@ -37,6 +38,19 @@ public class GroupAPI extends BaseAPI {
                 .extract()
                     .body()
                     .as(GroupModel.class);
+    }
+
+    public static BitlinksModel bitlink(String groupGuid) {
+        return given()
+                    .spec(getBaseRequestSpecBuilder().build().spec(reqSpec.build()))
+                .when()
+                    .get(groupGuid + "/bitlinks")
+                .then()
+                    .spec(getBaseResponseSpecBuilder().build())
+                    .statusCode(HttpStatus.SC_OK)
+                .extract()
+                    .body()
+                .as(BitlinksModel.class);
     }
 
 }
