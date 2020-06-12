@@ -30,6 +30,7 @@ public class AuthAPI extends BaseAPI {
                 .when()
                     .post("/oauth/access_token")
                 .then()
+                    .log().headers().log().status()
                     .statusCode(HttpStatus.SC_OK)
                 .and().extract().body().asString();
     }
